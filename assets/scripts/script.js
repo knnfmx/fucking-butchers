@@ -4,10 +4,9 @@ const DAYS = document.querySelector('.days'),
       SECONDS = document.querySelector('.seconds');
 
 const CURRENT_YEAR = new Date().getFullYear();
-
 const OPEN_DATE = new Date(`February 1 ${CURRENT_YEAR} 10:00:00`);
 
-function updateCountdownTimer() {
+let timer = () => {
   const CURRENT_TIME = new Date();
   let diff = OPEN_DATE - CURRENT_TIME;
   let days = Math.floor(diff / 1000 / 60 / 60 / 24);
@@ -21,4 +20,5 @@ function updateCountdownTimer() {
   SECONDS.innerHTML = seconds < 10 ? '0' + seconds : seconds;
 }
 
-setInterval(updateCountdownTimer(), 1000);
+timer();
+setInterval(timer, 1000);
